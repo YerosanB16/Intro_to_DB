@@ -5,7 +5,8 @@ CREATE TABLE Books(
   title varchar (130),
   author_id foreign key,
   price DOUBLE,
-  publication_date DATE
+  publication_date DATE,
+  FOREIGN KEY (author_id) REFERENCES Authors(author_id)
 );
 CREATE TABLE Authors(
   author_id primary key,
@@ -20,11 +21,14 @@ CREATE TABLE Customers(
 CREATE TABLE Orders(
   order_id Primary Key,
   customer_id Foreign Key,
-  order_date DATE
-)
+  order_date DATE,
+  FOREIGN KEY (customer_id) REFERENCES Customers
+);
 CREATE TABLE Order_Details(
   orderdetailid Primary Key,
   order_id Foreign Key,
   book_id Foreign Key,
-  quantity DOUBLE
+  quantity DOUBLE,
+  FOREIGN KEY (order_id) REFERENCES Orders,
+  FOREIGN KEY (book_id) REFERENCES Books
 )
