@@ -19,16 +19,16 @@ CREATE TABLE Customers(
   address TEXT
 );
 CREATE TABLE Orders(
-  order_id PRIMARY KEY,
-  customer_id Foreign Key,
+  order_id INT PRIMARY KEY,
+  customer_id INT Foreign Key,
   order_date DATE,
-  FOREIGN KEY (customer_id) REFERENCES Customers
+  FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 CREATE TABLE Order_Details(
   orderdetailid PRIMARY KEY,
   order_id FOREIGN KEY,
   book_id FOREIGN KEY,
   quantity DOUBLE,
-  FOREIGN KEY (order_id) REFERENCES Orders,
-  FOREIGN KEY (book_id) REFERENCES Books
+  FOREIGN KEY (order_id) REFERENCES Orders(order_id)
+  FOREIGN KEY (book_id) REFERENCES Books(book_id)
 )
