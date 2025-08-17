@@ -1,4 +1,4 @@
--- Print full description of the table 'books' in the current database
+-- Print full description of the table 'Books' in the database 'alx_book_store'
 SELECT COLUMN_NAME AS `Column`,
        COLUMN_TYPE AS `Type`,
        IS_NULLABLE AS `Nullable`,
@@ -6,5 +6,5 @@ SELECT COLUMN_NAME AS `Column`,
        COLUMN_DEFAULT AS `Default`,
        EXTRA AS `Extra`
 FROM INFORMATION_SCHEMA.COLUMNS
-WHERE TABLE_SCHEMA = DATABASE()
-  AND TABLE_NAME = 'books';
+WHERE TABLE_SCHEMA = 'alx_book_store'
+  AND TABLE_NAME = 'Books';
